@@ -37,7 +37,6 @@ class TestCoordinateComputations(unittest.TestCase):
         result = Coords.haversine_distance(point1, point2, point3)
         self.assertEqual(result, None)
 
-
     # distance_2d
     def test_distance_2d_1(self):
         point1 = Coords(41.42751697778474, -75.92733091231945, None)

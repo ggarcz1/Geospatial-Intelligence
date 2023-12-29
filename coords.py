@@ -1,18 +1,26 @@
 import math
+
+
 class Coords:
     def __init__(self, x=0, y=0, z=0):
         self.x = x
         self.y = y
         self.z = z
-        
-    # def __str__(self):
-    #     return f"Coords(x={self.x}, y={self.y}, z={self.z})"
-        
+    
+    # returns a pretty string representation of the coordinates
+    def __str__(self):
+        return f"Coords(x={self.x}, y={self.y}, z={self.z})"
+    
+    # returns a list of the coordinates
+    def values(self):
+        return [self.x, self.y, self.z]
+    
     def rise_run(coord1, coord2, coord3):
     # 3d check
         if coord3 == None:
             return (coord2.y-coord1.y)/(coord2.x-coord1.x)
         else:
+            # z is in feet
             return (coord2.y-coord1.y)/(coord2.x-coord1.x)
 
     def rise(coord1, coord2, coord3):
