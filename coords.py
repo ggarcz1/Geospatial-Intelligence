@@ -19,6 +19,7 @@ class Coords:
     # 3d check
         if coord3 == None:
             return (coord2.y-coord1.y)/(coord2.x-coord1.x)
+        # TODO:
         else:
             # z is in feet
             return (coord2.y-coord1.y)/(coord2.x-coord1.x)
@@ -27,6 +28,7 @@ class Coords:
         # 3d check
         if coord3 == None:
             return coord2.y-coord1.y
+        # TODO:
         else:
             return coord2.y-coord1.y
 
@@ -34,6 +36,7 @@ class Coords:
         # 3d check
         if coord3 == None:
             return coord2.x-coord1.x
+        # TODO:
         else:
             return coord2.x-coord1.x
 
@@ -65,6 +68,7 @@ class Coords:
         # 3d check
         if coord3 == None:
             return (coord2.y-coord1.y)/(coord2.x-coord1.x)
+        # TODO:
         else:
             return (coord2.y-coord1.y)/(coord2.x-coord1.x)
         
