@@ -54,11 +54,25 @@ class TestCoordinateComputations(unittest.TestCase):
         self.assertEqual(round(result, 2), 1865.86)
         self.assertEqual(result, 1865.8575942399013)
 
+    def test_distance_2d_3_equals_0(self):
+        point1 = Coords(74, 91, None)
+        point2 = Coords(74, 91, None)
+        result = Coords.distance_2d(point1, point2)
+        # need to calculate these
+        self.assertEqual(round(result, 2), 0)
+        self.assertEqual(result, 0)
+
+    def test_distance_2d_4_greater_0(self):
+        point1 = Coords(-87654, -8965453, None)
+        point2 = Coords(-3424567, -9876543, None)
+        result = Coords.distance_2d(point1, point2)
+        # need to calculate these
+        self.assertGreater(round(result, 2), 0)
+        self.assertGreater(result, 0)
 
     # rise over run   
     # rise
     # run
-    # distance_2d
         
     # def test_haversine_dist_3_points(self):
     #     point1 = Coords(39.48719569273062, -76.53854508092664, None)
