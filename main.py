@@ -17,3 +17,9 @@ print(point3)
 
 for count in range (3):
     print(c1.get_3d())
+
+
+point = c1.get_2d()
+print(point.values())
+
+print(type(point.x))

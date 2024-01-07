@@ -2,11 +2,28 @@ import math
 
 
 class Coords:
+    def test(point):
+        # random_x = round(random.uniform(-90, 90), 15)
+        # random_y = round(random.uniform(-180, 180), 15)
+        # random_z = round(random.uniform(0, 264000), 0)
+        
+        rtn_text = ''
+        if point.x is not None and type(point.x) is float and not (-90 <= point.x <= 90):
+            rtn_text += 'X value is out of range -90 to 90\n'
+
+        if point.y is not None and type(point.y) is float and not (-180 <= float(point.y) <= 180):
+            rtn_text += 'Y value is out of range -180 to 180\n'
+
+        if point.z is not None and type(point.z) is float and not (0 <= float(point.z) <= 264000):
+            rtn_text += 'Z value is out of range 0 to 264000\n'
+
+        return rtn_text 
+    
     def __init__(self, x=0, y=0, z=0):
         self.x = x
         self.y = y
         self.z = z
-    
+                
     # returns a pretty string representation of the coordinates
     def __str__(self):
         return f"Coords(x={self.x}, y={self.y}, z={self.z})"
