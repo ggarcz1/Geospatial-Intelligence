@@ -1,5 +1,4 @@
-## A repository of geospatial intelligence projects, code, and algorithms
-
+# A repository of geospatial intelligence projects, code, and algorithms
 
 Coordinates can be defined via the following:
 
