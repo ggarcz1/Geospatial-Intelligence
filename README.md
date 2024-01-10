@@ -8,12 +8,13 @@ Coordinates can be defined via the following:
 `print(Coords.rise_run(point1, point2, None))`
 
 Random coordinates can be defined via the following:
+
 `from random_coordinates import Random_Coordinates`\
 `Random_coordinates.get_2d()`\
 `Random_coordinates.get_3d()`
 
-
 Utilze the following imports for the assoicated methods below:
+
 `from physics_methods import Physics`\
 `Physics.speed(...)`\
 `Physics.velocity(...)`\
