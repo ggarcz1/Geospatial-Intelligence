@@ -7,6 +7,18 @@ Coordinates can be defined via the following:
 `point2 = Coords(39.48886062760044, -76.52274732566815, 534)`\
 `print(Coords.rise_run(point1, point2, None))`
 
+Random coordinates can be defined via the following:
+`from random_coordinates import Random_Coordinates`\
+`Random_coordinates.get_2d()`\
+`Random_coordinates.get_3d()`
+
+
+Utilze the following imports for the assoicated methods below:
+`from physics_methods import Physics`\
+`Physics.speed(...)`\
+`Physics.velocity(...)`\
+`Physics.acceleration(...)`
+
 Space is defined at 50 miles in the US and 62 miles internationally.\
-50 miles (80.65 km) = 264000 feet\
-62 miles (100 km) = 327360 feet
+50 miles (80.65 km) = 264000 feet (80650 meters) \
+62 miles (100 km) = 327360 feet (100000 meters)

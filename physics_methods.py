@@ -1,10 +1,12 @@
+import math
+
 class Physics:  
     # def __init__(self, displacement, time):
     #     self.displacement = displacement
     #     self.time = time
 
-# NOTE: both forumlas use the same computation, however, 
-# one uses displacement and the other uses velocity as the numerator
+    # NOTE: both forumlas use the same computation, however, 
+    # one uses displacement and the other uses velocity as the numerator
     
     # covered in the coords class
     def distance(value1, value2):
