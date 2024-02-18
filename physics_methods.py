@@ -6,7 +6,7 @@ class Physics:
     #     self.displacement = displacement
     #     self.time = time
 
-    # NOTE: both forumlas use the same computation, however, 
+    # NOTE: both formulas use the same computation, however,
     # one uses displacement and the other uses velocity as the numerator
     
     # time unit is dependent on the 

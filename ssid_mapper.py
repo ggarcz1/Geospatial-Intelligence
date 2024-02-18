@@ -33,6 +33,6 @@ print(url)
 ssid_supplied = input('enter ssid to search for: ')
 data = {'ssid':ssid_supplied}
 
-# pull cordinates on map and address information
+# pull coordinates on map and address information
 x = requests.post(url, json=data)
 print(x.text)

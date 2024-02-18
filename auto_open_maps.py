@@ -8,22 +8,22 @@ from selenium.webdriver.chrome.options import Options
 
 
 # default set to 0
-latituide = longituide = 0
+latitude = longitude = 0
 lat_look = long_look = 0
 # url = 'https://www.google.com/maps'
 coordinates = '38.9878171700676, -76.92139776882883'
 coordinates = coordinates.replace(' ','').split(',')
-latituide = coordinates[0]
-longituide =  coordinates[1]
+latitude = coordinates[0]
+longitude =  coordinates[1]
 
 # default set these to the same as the lat and long to search
-lat_look = latituide
-long_look = longituide
+lat_look = latitude
+long_look = longitude
 
 # double from 0 - 20
 zoom = 13
 # url = f'https://www.google.com/maps/@{latituide},{longituide},{zoom}z?entry=ttu'
-url = f'https://www.google.com/maps/place/0%C2%B000\'{latituide}%22N+0%C2%B000\'{longituide}%22E/@{lat_look},{long_look},{zoom}z?entry=ttu'
+url = f'https://www.google.com/maps/place/0%C2%B000\'{latitude}%22N+0%C2%B000\'{longitude}%22E/@{lat_look},{long_look},{zoom}z?entry=ttu'
 file_name = 'selenium_tests.py'
 
 # keep tab opened
