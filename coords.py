@@ -29,10 +29,10 @@ class Coords:
         return f"Coords(x={self.x}, y={self.y}, z={self.z})"
     
     # returns a list of the coordinates
-    def values(self):
+    def values(self) -> list:
         return [self.x, self.y, self.z]
     
-    def rise_run(coord1, coord2, coord3):
+    def rise_run(coord1: float, coord2: float, coord3: float) -> float:
     # 3d check
         if coord3 == None:
             return (coord2.y-coord1.y)/(coord2.x-coord1.x)
@@ -41,7 +41,7 @@ class Coords:
             # z is in feet
             return (coord2.y-coord1.y)/(coord2.x-coord1.x)
 
-    def rise(coord1, coord2, coord3):
+    def rise(coord1: float, coord2: float, coord3: float) -> float:
         # 3d check
         if coord3 == None:
             return coord2.y-coord1.y
@@ -49,7 +49,7 @@ class Coords:
         else:
             return coord2.y-coord1.y
 
-    def run(coord1, coord2, coord3):
+    def run(coord1: float, coord2: float, coord3: float) -> float:
         # 3d check
         if coord3 == None:
             return coord2.x-coord1.x
@@ -57,11 +57,11 @@ class Coords:
         else:
             return coord2.x-coord1.x
 
-    def distance_2d(coord1, coord2):
+    def distance_2d(coord1: float, coord2: float) -> float:
         return math.sqrt((coord2.x-coord1.x)**2+(coord2.y-coord1.y)**2)
 
     # source: https://chat.openai.com/share/d25da242-c9e8-41ab-ba38-b3c95b9dca91
-    def haversine_distance(coord1, coord2, coord3):
+    def haversine_distance(coord1: float, coord2: float, coord3: float) -> float:
         if coord3 == None:
             # must be 2 points in coord1 and coord2 
             if not coord1 == None and not coord2 == None:
@@ -81,7 +81,7 @@ class Coords:
             else:
                 return None
 
-    def rise_run(coord1, coord2, coord3):
+    def rise_run(coord1: float, coord2: float, coord3: float) -> float:
         # 3d check
         if coord3 == None:
             return (coord2.y-coord1.y)/(coord2.x-coord1.x)

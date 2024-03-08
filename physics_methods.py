@@ -10,7 +10,7 @@ class Physics:
     # one uses displacement and the other uses velocity as the numerator
     
     # time unit is dependent on the 
-    def time_to_x(distance, speed, unit_speed, unit_time):
+    def time_to_x(distance: float, speed: float, unit_speed: Units, unit_time: float) -> list:
         time = 0
         # distance
         time = distance / speed
@@ -23,32 +23,32 @@ class Physics:
     
 
     # covered in the coords class
-    def distance(value1, value2):
+    def distance(value1: float, value2: float) -> float:
         if value2 < value1:
             return None
         
         return value2 - value1
     
-    def speed(distance, tI, tF):
-        if (tF - tI) == 0 or distance < 0 or tI > tF or tI < 0:
+    def speed(distance: float, timeInitial: float, timeFinal: float) -> float:
+        if (timeFinal - timeInitial) == 0 or distance < 0 or timeInitial > timeFinal or timeInitial < 0:
             return None
         
-        return distance/(tF-tI)
+        return distance/(timeFinal-timeInitial)
     
-    def velocity(pI, pF, tI, tF):
+    def velocity(posInitial: float, posFinal: float, timeInitial: float, timeFinal: float) -> float:
         # change in pos
         # over
         # change in time
-        if (tF - tI) == 0 or tI > tF or tI < 0:
+        if (timeFinal - timeInitial) == 0 or timeInitial > timeFinal or timeInitial < 0:
             return None
 
-        return (pF-pI)/(tF-tI)
+        return (posFinal-posInitial)/(timeFinal-timeInitial)
 
-    def acceleration(vI, vF, tI, tF):
+    def acceleration(velocityInitial: float, velocityFinal: float, timeInitial: float, timeFinal: float) -> float:
         # change in velocity
         # over 
         # change in time
-        if (tF - tI) == 0 or tI > tF or tI < 0:
+        if (timeFinal - timeInitial) == 0 or timeInitial > timeFinal or timeInitial < 0:
             return None
         
-        return (vF-vI)/(tF-tI)
+        return (velocityFinal-velocityInitial)/(timeFinal-timeInitial)

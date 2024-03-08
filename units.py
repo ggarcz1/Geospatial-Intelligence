@@ -1,6 +1,6 @@
 
 class Units:
-    def __init__(self, measure_distance, measure_time):
+    def __init__(self, measure_distance: str, measure_time: str) -> None:
         dist = type(measure_distance)
         time = type(measure_time)
         if dist is str and time is str:
@@ -9,11 +9,11 @@ class Units:
         else:
             self.measure_distance = self.measure_time = None
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.measure_distance}/{self.measure_time}"
     
     # returns a list of the coordinates
-    def display(self):
+    def display(self) -> list:
         return [self.measure_distance, self.measure_time]
 
 

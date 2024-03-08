@@ -1,7 +1,7 @@
 import requests
 
 # from chat gpt
-def find_center_coordinates(coord1, coord2, coord3):
+def find_center_coordinates(coord1: list, coord2: list, coord3: list) -> list:
     # Latitude and longitude values of the coordinates
     lat1, lon1 = coord1
     lat2, lon2 = coord2
@@ -14,7 +14,7 @@ def find_center_coordinates(coord1, coord2, coord3):
     # Return the center coordinates
     return avg_lat, avg_lon
 
-def get_city_coordinates(city):
+def get_city_coordinates(city: str) -> list:
     # Google Geocoding API endpoint
     geocoding_api_url = 'https://maps.googleapis.com/maps/api/geocode/json'
 
