@@ -5,9 +5,10 @@ Coordinates can be defined via the following:
 `from coords import Coords`\
 `# 2D`\
 `point1 = Coords(39.48719569273062, -76.53854508092664, None)`\
-`# 3D`\
-`point2 = Coords(39.48886062760044, -76.52274732566815, 534)`\
+`point2 = Coords(39.48886062760044, -76.52274732566815, None)`\
 `print(Coords.rise_run(point1, point2, None))`
+`# 3D`\
+`point3 = Coords(39.48886062760044, -76.52274732566815, 534)`\
 
 Random coordinates can be defined via the following:
 
