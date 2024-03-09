@@ -12,9 +12,9 @@ latitude = longitude = 0
 lat_look = long_look = 0
 # url = 'https://www.google.com/maps'
 coordinates = '38.9878171700676, -76.92139776882883'
-coordinates = coordinates.replace(' ','').split(',')
+coordinates = coordinates.replace(' ', '').split(',')
 latitude = coordinates[0]
-longitude =  coordinates[1]
+longitude = coordinates[1]
 
 # default set these to the same as the lat and long to search
 lat_look = latitude

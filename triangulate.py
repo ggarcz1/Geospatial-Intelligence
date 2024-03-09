@@ -1,5 +1,6 @@
 import requests
 
+
 # from chat gpt
 def find_center_coordinates(coord1: list, coord2: list, coord3: list) -> list:
     # Latitude and longitude values of the coordinates
@@ -13,6 +14,7 @@ def find_center_coordinates(coord1: list, coord2: list, coord3: list) -> list:
 
     # Return the center coordinates
     return avg_lat, avg_lon
+
 
 def get_city_coordinates(city: str) -> list:
     # Google Geocoding API endpoint
@@ -38,13 +40,13 @@ def get_city_coordinates(city: str) -> list:
         print('Error occurred while geocoding.')
         return None
 
+
 # Example usage
 city_name = 'New York'
 coordinates = get_city_coordinates(city_name)
 
 if coordinates:
     print(f'Coordinates of {city_name}: Latitude={coordinates[0]}, Longitude={coordinates[1]}')
-
 
 # Example coordinates
 coordinate1 = (41.8781, -87.6298)  # Chicago

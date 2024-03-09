@@ -26,3 +26,15 @@ Utilize the following imports for the associated methods below:
 Space is defined as 50 miles in the US and 62 miles internationally.\
 50 miles (80.65 km) = 264000 feet (80650 meters) \
 62 miles (100 km) = 327360 feet (100000 meters)
+
+
+### ToDo: ###
+1. In `coods.py` figure out if the "none" is valid check for the `z` parameter in coordinates.  This may cayse issues with 2D vs 3D point verifications.
+  - What about 1D points?
+  - Could possibly add a check for the dimension type to the coords class \
+
+See issue at : https://github.com/ggarcz1/Geospatial-Intelligence/issues/7
+
+1. Tracking and vectoring.  See issues below:
+   - https://github.com/ggarcz1/Geospatial-Intelligence/issues/5
+   - https://github.com/ggarcz1/Geospatial-Intelligence/issues/6
