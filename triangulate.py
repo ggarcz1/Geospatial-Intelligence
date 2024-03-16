@@ -57,4 +57,4 @@ coordinate3 = (40.7128, -74.0060)  # New York
 center_coordinates = find_center_coordinates(coordinate1, coordinate2, coordinate3)
 
 # Print the center coordinates
-print("Center coordinates:", center_coordinates)
+print('Center coordinates:', center_coordinates)

@@ -10,7 +10,7 @@ class Coords:
 
     # returns a pretty string representation of the coordinates
     def __str__(self):
-        return f"Coords(x={self.x}, y={self.y}, z={self.z}, Dimension={self.dimension})"
+        return f'Coords(x={self.x}, y={self.y}, z={self.z}, Dimension={self.dimension})'
 
     # returns a list of the coordinates
     def values(self) -> list:
@@ -45,7 +45,7 @@ class Coords:
                     or (point.y > 180):
                 rtn_text.append('Y value is out of range -180 to 180')
 
-        # TODO: need to figure out if the "none" is valid check here
+        # TODO: need to figure out if the 'none' is valid check here
         # this may cause issues with 2d vs 3d items.
         # can check this later on if the value is needed
         # OR I can add a type check to the overall coords class parameters

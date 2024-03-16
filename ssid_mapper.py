@@ -1,7 +1,7 @@
 import re
 import requests
 
-# parse out lines with "SSID: "
+# parse out lines with 'SSID: '
 # f = open('networks.txt', 'r')
 # target = 'the target'
 

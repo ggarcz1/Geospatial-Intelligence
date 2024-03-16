@@ -29,7 +29,7 @@ Space is defined as 50 miles in the US and 62 miles internationally.\
 
 
 ### ToDo: ###
-1. In `coods.py` figure out if the "none" is valid check for the `z` parameter in coordinates.  This may cayse issues with 2D vs 3D point verifications.
+1. In `coods.py` figure out if the 'none' is valid check for the `z` parameter in coordinates.  This may cayse issues with 2D vs 3D point verifications.
   - What about 1D points?
   - Could possibly add a check for the dimension type to the coords class \
 
