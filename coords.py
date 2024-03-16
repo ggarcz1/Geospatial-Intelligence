@@ -18,10 +18,15 @@ class Coords:
 
     def test_params(point) -> list:
         rtn_text = []
-        type_x, type_y, type_z = type(point.x), type(point.y), type(point.z)
+        type_x, type_y, type_z, type_dimension = \
+            type(point.x), type(point.y), type(point.z), type(point.dimension)
         dimension = point.dimension
 
-        if dimension is None or dimension < 1:
+        # TODO: match the number of inputs to the dimensions
+        if dimension is None or \
+                type_dimension is not int\
+                or dimension < 1\
+                or dimension > 3:
             return [f'Error. Dimension is set at {dimension}']
 
         # always need at lest one dimension

@@ -3,10 +3,36 @@ import unittest
 
 
 class TestCoordinateComputations(unittest.TestCase):
-    # def test_range_checks_1(self):
+    def test_dimension_1(self):
+        point1 = Coords(39.48719569273062, -76.53854508092664, None, 44)
+        result = Coords.test_params(point1)
+        self.assertEqual(result, ['Error. Dimension is set at 44'])
+
+    def test_dimension_2(self):
+        point1 = Coords(39.48719569273062, -76.53854508092664, None, -2)
+        result = Coords.test_params(point1)
+        self.assertEqual(result, ['Error. Dimension is set at -2'])
+
+    def test_dimension_3(self):
+        point1 = Coords(39.48719569273062, -76.53854508092664, None, None)
+        result = Coords.test_params(point1)
+        self.assertEqual(result, ['Error. Dimension is set at None'])
+
+    def test_dimension_4(self):
+        point1 = Coords(39.48719569273062, -76.53854508092664, None, 2.2)
+        result = Coords.test_params(point1)
+        self.assertEqual(result, ['Error. Dimension is set at 2.2'])
+
+    def test_dimension_5(self):
+        point1 = Coords(39.48719569273062, -76.53854508092664, None, 'hi')
+        result = Coords.test_params(point1)
+        self.assertEqual(result, ['Error. Dimension is set at hi'])
+
+    # # TODO
+    # def test_dimension_6(self):
     #     point1 = Coords(39.48719569273062, -76.53854508092664, None, 2)
     #     result = Coords.test_params(point1)
-    #     self.assertEqual(result, '')
+    #     self.assertEqual(result, ['Error. Dimension is set at 44'])
 
     def test_range_checks_1(self):
         point1 = Coords(39.48719569273062, -76.53854508092664, None, 2)

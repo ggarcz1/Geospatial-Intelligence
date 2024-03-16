@@ -28,12 +28,12 @@ file_name = 'selenium_tests.py'
 
 # keep tab opened
 chrome_options = Options()
-chrome_options.add_experimental_option("detach", True)
+chrome_options.add_experimental_option('detach', True)
 driver = webdriver.Chrome(options=chrome_options)
 driver.get(url=url)
 
 # # this is how to do it with typing, 
-# # find element named "username"
-# driver.find_element(By.NAME, "username").send_keys(username)
+# # find element named 'username'
+# driver.find_element(By.NAME, 'username').send_keys(username)
 # # pressing the submit button
-# driver.find_element(By.CSS_SELECTOR, "input[type=\"submit\" i]").click()
+# driver.find_element(By.CSS_SELECTOR, 'input[type=\'submit\' i]').click()
