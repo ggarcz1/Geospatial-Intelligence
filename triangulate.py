@@ -27,7 +27,7 @@ def get_city_coordinates(city: str) -> list:
     }
 
     # Send GET request to Geocoding API
-    response = requests.get(geocoding_api_url, params=params)
+    response = requests.get(url=geocoding_api_url, params=params)
     data = response.json()
 
     # Parse the response to extract coordinates
