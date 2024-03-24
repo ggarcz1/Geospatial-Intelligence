@@ -1,3 +1,4 @@
+import sys
 import tkinter as tk
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -56,8 +57,34 @@ def calculate_endpoint(angle_degrees: float, distance):
     return [end_point_x, end_point_y]
 
 
+# TODO:
 def degrees_calculate(p1: list, p2: list) -> float:
-    return rise_run(p1, p2) * 360
+    # Calculate the angle using atan2 function
+    # math.sin()
+    angle_radians = math.atan2(p2[1], p2[0])
+    # Convert radians to degrees
+    angle_degrees = math.degrees(angle_radians)
+    # if angle_degrees < 0:
+    #     return 360 + angle_degrees
+
+    # determine quadrant
+
+    quarter = quadrant(p2)
+    print(f'{angle_degrees}\t{quarter}')
+    if quarter == 1:
+        return angle_degrees
+    if quarter == 2:
+        return 90 + angle_degrees
+    elif quarter == 3:
+        return 180 + angle_degrees
+    else:
+        return 270 + angle_degrees
+
+    # print(rise_run(p1, p2) % 1)
+    # val = abs(rise_run(p1, p2) % 1) * 360
+    # # if val >= 360:
+    # #     return val - 360
+    # return val
 
 
 # to calculate the distance of a vector, aka to a "target", point or object
@@ -71,14 +98,16 @@ def distance(p1: list, p2: list) -> float:
         math.pow(p1[1] - p2[1], 2))
 
 
+# for compass directions
+# TODO: what if it is on the y or x axis?
 def quadrant(point):
     # I
     # x+ y+
     if point[0] > 0 and point[1] > 0:
         return 1
     # II
-    # x- y+
-    elif point[0] < 0 and point[1] > 0:
+    # x+ y-
+    elif point[0] > 0 and point[1] < 0:
         return 2
     # III
     # x- y-
@@ -118,19 +147,23 @@ root.title("XY Plane GUI")
 # plot_button.pack()
 
 # declare direction
-vector_degrees = 40
-
-if type(vector_degrees) is not float and \
-        type(vector_degrees) is not int \
-        or vector_degrees < 0 \
-        or vector_degrees > 360:
-    print(f'Error. {vector_degrees} is invalid.')
+# vector_degrees = 40
+#
+# if type(vector_degrees) is not float and \
+#         type(vector_degrees) is not int \
+#         or vector_degrees < 0 \
+#         or vector_degrees > 360:
+#     print(f'Error. {vector_degrees} is invalid.')
 
 # revisit what this does exactly
 # point = calculate_endpoint(vector_degrees, distance([0, 0], target))
 
+# target items
 origin = [0, 0]
-target = [-85, -33]
+target = [-33, 45.4]
+
+if sys.argv == 4:
+    target = [sys.argv[2], sys.argv[3]]
 
 plot_point(0, 0, target[0], target[1])
 dist = distance([0, 0], target)
