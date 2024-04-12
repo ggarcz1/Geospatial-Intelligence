@@ -2,6 +2,7 @@ from physics_methods import Physics
 from units import Units
 import unittest
 
+
 # def velocity(pI, pF, tI, tF):
 class TestCoordinateComputations(unittest.TestCase):
     def test_speed_1(self):
@@ -10,7 +11,7 @@ class TestCoordinateComputations(unittest.TestCase):
 
     def test_speed_2(self):
         result = Physics.speed(3232, 4, 8)
-        self.assertEqual(result, 3232/4)
+        self.assertEqual(result, 3232 / 4)
 
     def test_speed_3(self):
         result = Physics.speed(12, 0, 4)
@@ -69,32 +70,33 @@ class TestCoordinateComputations(unittest.TestCase):
         self.assertEqual(result, None)
 
     def test_time_1(self):
-        result = Physics.time_to_x(5, 5,  'miles', 'hour')
+        result = Physics.time_to_x(5, 5, 'miles', 'hour')
         self.assertEqual(result, (1, 'miles/hour'))
-    
+
     def test_time_2(self):
-        result = Physics.time_to_x(3540, 600,  'miles', 'hour')
+        result = Physics.time_to_x(3540, 600, 'miles', 'hour')
         self.assertEqual(result, (5.9, 'miles/hour'))
-    
+
     def test_time_3(self):
-        result = Physics.time_to_x(6000, 600,  'miles', 'hour')
+        result = Physics.time_to_x(6000, 600, 'miles', 'hour')
         self.assertEqual(result, (10, 'miles/hour'))
 
     def test_time_4(self):
-        result = Physics.time_to_x(6000, 600,  'meters', 'second')
+        result = Physics.time_to_x(6000, 600, 'meters', 'second')
         self.assertEqual(result, (10, 'meters/second'))
-    
+
     def test_time_5(self):
-        result = Physics.time_to_x(-999, 600,  'meters', 'second')
-        self.assertEqual(result, 'Error: one or more values are less than 0, please check inputs')
-    
+        result = Physics.time_to_x(-999, 600, 'meters', 'second')
+        self.assertEqual(result, 'Error: one or more values are less than 0, please check inputs:\n[\'distance\']')
+
     def test_time_6(self):
-        result = Physics.time_to_x(999, -600,  'meters', 'second')
-        self.assertEqual(result, 'Error: one or more values are less than 0, please check inputs')
+        result = Physics.time_to_x(999, -600, 'meters', 'second')
+        self.assertEqual(result, 'Error: one or more values are less than 0, please check inputs:\n[\'speed\']')
 
     def test_time_7(self):
-        result = Physics.time_to_x(-999, -600,  'meters', 'second')
-        self.assertEqual(result, 'Error: one or more values are less than 0, please check inputs')
+        result = Physics.time_to_x(-999, -600, 'meters', 'second')
+        self.assertEqual(result, 'Error: one or more values are less than 0, '
+                                 'please check inputs:\n'+'[\'distance\',\'speed\']')
 
     def test_units_1(self):
         result = Units('miles', 'hour')
@@ -108,6 +110,6 @@ class TestCoordinateComputations(unittest.TestCase):
         result = Units(-2323, 213123)
         self.assertEqual(result.__str__(), 'None/None')
 
-        
+
 if __name__ == '__main__':
     unittest.main()

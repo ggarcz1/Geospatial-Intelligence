@@ -16,14 +16,14 @@ def find_center_coordinates(coord1: list, coord2: list, coord3: list) -> list:
     return avg_lat, avg_lon
 
 
-def get_city_coordinates(city: str) -> list:
+def get_city_coordinates(city: str, api_key: str) -> list:
     # Google Geocoding API endpoint
     geocoding_api_url = 'https://maps.googleapis.com/maps/api/geocode/json'
 
     # API request parameters
     params = {
         'address': city,
-        'key': 'YOUR_API_KEY'  # Replace with your own Google Maps API key
+        'key': api_key  # Replace with your own Google Maps API key
     }
 
     # Send GET request to Geocoding API

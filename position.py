@@ -22,9 +22,14 @@ class Position:
 
     # returns a list of the coordinates
     def values(self) -> list:
-        return [self.timeI, self.time,
-                self.speedI, self.speedF,
-                self.accelX, self.accelY, self.accelZ,
-                self.bearingI, self.bearingF]
+        return [self.timeI,
+                self.time,
+                self.speedI,
+                self.speedF,
+                self.accelX,
+                self.accelY,
+                self.accelZ,
+                self.bearingI,
+                self.bearingF]
 
     # def
