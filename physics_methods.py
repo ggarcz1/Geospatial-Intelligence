@@ -10,7 +10,8 @@ class Physics:
     # NOTE: both formulas use the same computation, however,
     # one uses displacement and the other uses velocity as the numerator
 
-    # time unit is dependent on the 
+    # time unit is dependent on the
+    @staticmethod
     def time_to_x(distance: float, speed: float, unit_speed: Units, unit_time: float) -> list:
         time = 0
         # distance
@@ -29,12 +30,14 @@ class Physics:
         return time, unit.__str__()
 
     # covered in the coords class
+    @staticmethod
     def distance(value1: float, value2: float) -> float:
         if value2 < value1:
             return None
 
         return value2 - value1
 
+    @staticmethod
     def speed(distance: float, timeInitial: float, timeFinal: float) -> float:
         # change in distance
         # over
@@ -44,6 +47,7 @@ class Physics:
 
         return distance / (timeFinal - timeInitial)
 
+    @staticmethod
     def velocity(posInitial: float, posFinal: float, timeInitial: float, timeFinal: float) -> float:
         # change in pos
         # over
@@ -53,6 +57,7 @@ class Physics:
 
         return (posFinal - posInitial) / (timeFinal - timeInitial)
 
+    @staticmethod
     def acceleration(velocityInitial: float, velocityFinal: float, timeInitial: float, timeFinal: float) -> float:
         # change in velocity
         # over 
