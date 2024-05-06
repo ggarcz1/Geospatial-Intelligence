@@ -56,36 +56,42 @@ def calculate_endpoint(angle_degrees: float, distance):
 
     return [end_point_x, end_point_y]
 
+def get_nsew(degrees: float) -> str:
+    degrees %= 360
+    directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"]
+    index = round(degrees / 45) % 8
+    return directions[index]
 
-# TODO:
+# TODO: test this
 def degrees_calculate(p1: list, p2: list) -> float:
-    # Calculate the angle using atan2 function
-    # math.sin()
+    # Calculate the angle using atan2 functions
     angle_radians = math.atan2(p2[1], p2[0])
     # Convert radians to degrees
     angle_degrees = math.degrees(angle_radians)
-    # if angle_degrees < 0:
-    #     return 360 + angle_degrees
+
+    vals = {90.0: 0,
+            180.0: 270,
+            270.0: 180,
+            0.0: 90}
+
+    if angle_degrees in vals:
+        angle_degrees == vals[angle_degrees]
+    elif angle_degrees > 0 and angle_degrees < 90:
+        angle_degrees = 90 - angle_degrees
+    elif angle_degrees > 90 and angle_degrees < 180:
+        angle_degrees = (180 - angle_degrees) + 270
+    # elif angle_degrees > 180 and angle_degrees < 270:
+    #     print('here3')
+    #     angle_degrees = -999
+    else:
+        angle_degrees = (270 - angle_degrees) - 180
 
     # determine quadrant
-
     quarter = quadrant(p2)
-    print(f'{angle_degrees}\t{quarter}')
-    if quarter == 1:
-        return angle_degrees
-    if quarter == 2:
-        return 90 + angle_degrees
-    elif quarter == 3:
-        return 180 + angle_degrees
-    else:
-        return 270 + angle_degrees
+    direction = get_nsew(angle_degrees)
+    print(f'Angle: {int(angle_degrees)}\nQuadrant: {quarter}\nDirection: {direction}')
 
-    # print(rise_run(p1, p2) % 1)
-    # val = abs(rise_run(p1, p2) % 1) * 360
-    # # if val >= 360:
-    # #     return val - 360
-    # return val
-
+    return angle_degrees
 
 # to calculate the distance of a vector, aka to a "target", point or object
 def rise_run(p1: list, p2: list) -> float:
@@ -160,7 +166,8 @@ root.title("XY Plane GUI")
 
 # target items
 origin = [0, 0]
-target = [-33, 45.4]
+# target = [-33, 45.4]
+target = [-100,-10]
 
 if sys.argv == 4:
     target = [sys.argv[2], sys.argv[3]]
