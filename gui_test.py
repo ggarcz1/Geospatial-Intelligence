@@ -3,6 +3,8 @@ import tkinter as tk
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import math
+import random
+import argparse
 
 # Lists to store X and Y coordinates of points
 x_coords = []
@@ -89,7 +91,7 @@ def degrees_calculate(p1: list, p2: list) -> float:
     # determine quadrant
     quarter = quadrant(p2)
     direction = get_nsew(angle_degrees)
-    print(f'Angle: {int(angle_degrees)}\nQuadrant: {quarter}\nDirection: {direction}')
+    # print(f'Angle: {int(angle_degrees)}\nQuadrant: {quarter}\nDirection: {direction}')
 
     return angle_degrees
 
@@ -166,29 +168,52 @@ root.title("XY Plane GUI")
 
 # target items
 origin = [0, 0]
-# target = [-33, 45.4]
-target = [-100,-10]
+target = [random.uniform(-100, 100), random.uniform(-100, 100)]
+# target = [-100,-10]
 
-if sys.argv == 4:
-    target = [sys.argv[2], sys.argv[3]]
+
+# print(f'Usage:\nFor default target f{target}:\npython .\gui_test.py\nFor input values:\npython .\gui_test.py x y')
+print(f'Usage:\npython .\gui_test.py\npython .\gui_test.py x y\n\n')
+
+
+# parser = argparse.ArgumentParser(description='description')
+# args = parser.parse_args()
+
+# parser.add_argument('-i', '--arg1', help='iterations')
+
+# args = parser.parse_args()
+
+# i = None
+
+# if args.arg1:
+#     i = int(args.arg1)
+
+if len(sys.argv) == 3:
+    target = [float(sys.argv[1]), float(sys.argv[2])]
 
 plot_point(0, 0, target[0], target[1])
 dist = distance([0, 0], target)
 
+dst = round(dist, 2)
 distance_button = tk.Button(root,
-                            text=f"Distance: {round(dist, 2)} miles")
+                            text=f"Distance: {dst} miles")
 distance_button.pack()
 
+dgr = round(degrees_calculate(origin, target), 2)
 degrees = tk.Button(root,
-                    text=f"Degrees: {round(degrees_calculate(origin, target), 2)}\u00b0")
+                    text=f"Degrees: {dgr}\u00b0")
 degrees.pack()
 
+direct = get_nsew(dgr)
+nsew = tk.Button(root,
+                 text=f"Direction: {direct}")
+nsew.pack()
+
+q = quadrant(target)
 quad = tk.Button(root,
-                 text=f"Quadrant: {quadrant(target)}")
+                 text=f"Quadrant: {q}")
 quad.pack()
 
-# # input for destination point/vehicle
-# x_dest = 54
-# y_dest = -33
-# # plot_point(x_dest, y_dest, point[0], point[1])
+print(f'Distance: {dst}\nDegrees: {dgr}\nDirection: {direct}\nQuadrant: {q}')
+
 root.mainloop()
