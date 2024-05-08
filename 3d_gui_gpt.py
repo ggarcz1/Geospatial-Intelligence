@@ -4,10 +4,11 @@ import numpy as np
 import math
 import random
 import argparse
+# from coords import Coords
 
 
 # usage:
-# python .\3d_gui_gpt.py -x 23 -y 33 -z 93 -d 83
+# python .\3d_gui_gpt.py -x 10 -y 13 -z 14 -d 83
 # -x --> x point of target
 # -y --> y point of target
 # -z --> z point of target
@@ -29,9 +30,9 @@ def degrees_calculate(p1: list, p2: list) -> float:
 
     if angle_degrees in vals:
         angle_degrees == vals[angle_degrees]
-    elif angle_degrees > 0 and angle_degrees < 90:
+    elif 0 < angle_degrees < 90:
         angle_degrees = 90 - angle_degrees
-    elif angle_degrees > 90 and angle_degrees < 180:
+    elif 90 < angle_degrees < 180:
         angle_degrees = (180 - angle_degrees) + 270
     # elif angle_degrees > 180 and angle_degrees < 270:
     #     print('here3')
@@ -47,8 +48,10 @@ def get_nsew(degrees: float) -> str:
     index = round(degrees / 45) % 8
     return directions[index]
 
+
 def plot_arrow(ax, x, y, z, color):
     ax.quiver(0, 0, 0, x, y, z, color=color, arrow_length_ratio=0.1)
+
 
 def get_heading_points(heading_degrees):
     # Convert compass heading from degrees to radians
@@ -71,18 +74,24 @@ parser.add_argument('-y', '--arg2', help='y')
 parser.add_argument('-z', '--arg3', help='z')
 parser.add_argument('-d', '--arg4', help='directional heading')
 
+x_point = y_point = z_point = 0
+
 args = parser.parse_args()
 if args.arg1 and args.arg2 and args.arg3 and args.arg4:
     x_point = float(args.arg1)
     y_point = float(args.arg2)
     z_point = float(args.arg3)
     heading_origin = float(args.arg4)
-    
+
 else:
-    x_point = 40
-    y_point = -33
-    z_point = -33
+    x_point = 10
+    y_point = -15
+    z_point = -6
     heading_origin = 283
+
+# distance = Coords.euclidean_distance([0, 0, 0], [x_point, y_point, z_point])
+
+distance = math.sqrt((x_point - 0)**2 + (y_point - 0)**2 + (z_point - 0)**2)
 
 target = [x_point, y_point, z_point]
 # Create a figure and a 3D axis
@@ -96,51 +105,53 @@ ax.scatter(0, 0, 0, color='blue', label='')
 ax.scatter(x_point, y_point, z_point, color='green', label='Target')
 ax.scatter(0, 0, 0, color='Blue', label='Origin Direction')
 ax.scatter(0, 0, 0, color='White', label=f'{heading_origin} - {get_nsew(heading_origin)}')
+ax.scatter(0, 0, 0, color='White', label=f'{round(distance)} Miles')
+
 
 # Plot the arrow from (0, 0) to the target
 plot_arrow(ax, x_point, y_point, z_point, color='red')
 
 # Plot the arrow for N, S, E, W
-if z_point <= 0:
-    z_point -= 5
-else:
-    z_point += 5
+# if z_point <= 0:
+#     z_point -= 5
+# else:
+#     z_point += 5
 
-ax.quiver(0, 0, z_point, 0, 10, 0, color='black')
-ax.text(0, 11, z_point, 'N', color='Black')
-ax.quiver(0, 0, z_point, 0, -10, 0, color='black')
-ax.text(0, -11, z_point, 'S', color='Black')
-ax.quiver(0, 0, z_point, 10, 0, 0, color='black')
-ax.text(11, 0, z_point, 'E', color='Black')
-ax.quiver(0, 0, z_point, -10, 0, 0, color='black')
-ax.text(-11, 0, z_point, 'W', color='Black')
+z_point = 6
+len_compass = abs(min(x_point, y_point, z_point) / 2)
+len_compass = 6
+ax.quiver(0, 0, z_point, 0, len_compass, 0, color='black')
+ax.text(0, len_compass+1, z_point, 'N', color='Black')
+ax.quiver(0, 0, z_point, 0, -len_compass, 0, color='black')
+ax.text(0, -(len_compass+1), z_point, 'S', color='Black')
+ax.quiver(0, 0, z_point, len_compass, 0, 0, color='black')
+ax.text(len_compass+1, 0, z_point, 'E', color='Black')
+ax.quiver(0, 0, z_point, -len_compass, 0, 0, color='black')
+ax.text(-(len_compass+1), 0, z_point, 'W', color='Black')
 
-#direction of travel for origin
-target_degrees = degrees_calculate([0,0],[x_point, y_point])
+# direction of travel for origin
+target_degrees = degrees_calculate([0, 0], [x_point, y_point])
 nsew_target = get_nsew(degrees=target_degrees)
 nsew_origin = get_nsew(degrees=heading_origin)
 # target direction and degrees
 ax.scatter(0, 0, 0, color='White', label=f'Target: {round(target_degrees)} - {get_nsew(target_degrees)}')
 
-#direction of travel for origin, static coordinate plaes
+# direction of travel for origin, static coordinate plaes
 points = get_heading_points(heading_degrees=heading_origin)
 # print(points)
-plot_arrow(ax, points[0]*10, points[1]*10, points[2]*10, color='blue')
+plot_arrow(ax, points[0] * 10, points[1] * 10, points[2] * 10, color='blue')
 
-# Set labels and title
-# ax.set_xlabel('X')
-# ax.set_ylabel('Y')
-# ax.set_zlabel('Z')
-
-# ax.set_xticks([100])
-# ax.set_yticks([100])
-# ax.set_zticks([100])
+# empty space
+# ax.set_xticks([])
+# ax.set_yticks([])
+# ax.set_zticks([])
 
 target[0] = round(target[0])
 target[1] = round(target[1])
 target[2] = round(target[2])
 ax.set_title(f'Arrow from origin (0, 0, 0) to Target at {target} relative')
 ax.text(x_point, y_point, z_point, "Target", color='red')
+
 
 # Show plot
 plt.legend()
