@@ -5,12 +5,23 @@ import math
 import random
 import argparse
 
+
+# usage:
+# python .\3d_gui_gpt.py -x 23 -y 33 -z 93 -d 83
+# -x --> x point of target
+# -y --> y point of target
+# -z --> z point of target
+# -d --> direction of origin
+
+# for default hardcoded values
+# python .\3d_gui_gpt.py 
+
 def degrees_calculate(p1: list, p2: list) -> float:
     # Calculate the angle using atan2 functions
     angle_radians = math.atan2(p2[1], p2[0])
     # Convert radians to degrees
     angle_degrees = math.degrees(angle_radians)
-    print(angle_degrees)
+    # print(angle_degrees)
     vals = {90.0: 0,
             180.0: 270,
             270.0: 180,
