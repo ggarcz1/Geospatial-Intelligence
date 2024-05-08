@@ -66,3 +66,18 @@ class Physics:
             return None
 
         return (velocityFinal - velocityInitial) / (timeFinal - timeInitial)
+    
+    # given a heading, calculate the 3D point to go to 
+    def get_heading_points(heading_degrees: float) -> list:
+        # Convert compass heading from degrees to radians
+        theta = math.radians(90)  # Polar angle (θ) is 90 degrees
+        phi = math.radians(90 - heading_degrees)  # Azimuthal angle (φ) is 90 degrees - compass heading
+
+        # Define radius
+        r = 1  # Assuming unit radius for simplicity
+
+        # Calculate Cartesian coordinates using spherical to Cartesian conversion
+        x_coordinate = r * math.sin(theta) * math.cos(phi)
+        y_coordinate = r * math.sin(theta) * math.sin(phi)
+        z_coordinate = r * math.cos(theta)
+        return [x_coordinate, y_coordinate, z_coordinate]
