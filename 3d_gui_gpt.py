@@ -85,13 +85,15 @@ if args.arg1 and args.arg2 and args.arg3 and args.arg4:
 
 else:
     x_point = 10
-    y_point = -15
+    y_point = -4
     z_point = -6
     heading_origin = 283
 
 # distance = Coords.euclidean_distance([0, 0, 0], [x_point, y_point, z_point])
 
 distance = math.sqrt((x_point - 0)**2 + (y_point - 0)**2 + (z_point - 0)**2)
+scale_grid = max(abs(x_point), abs(y_point), abs(z_point))
+scale_grid = [-scale_grid, scale_grid]
 
 target = [x_point, y_point, z_point]
 # Create a figure and a 3D axis
@@ -103,6 +105,8 @@ ax.scatter(0, 0, 0, color='blue', label='')
 
 # Plot the user-supplied point
 ax.scatter(x_point, y_point, z_point, color='green', label='Target')
+ax.text(x_point, y_point, z_point, "Target", color='red')
+
 ax.scatter(0, 0, 0, color='Blue', label='Origin Direction')
 ax.scatter(0, 0, 0, color='White', label=f'{heading_origin} - {get_nsew(heading_origin)}')
 ax.scatter(0, 0, 0, color='White', label=f'{round(distance)} Miles')
@@ -117,17 +121,27 @@ plot_arrow(ax, x_point, y_point, z_point, color='red')
 # else:
 #     z_point += 5
 
-z_point = 6
+z_point = 1
 len_compass = abs(min(x_point, y_point, z_point) / 2)
-len_compass = 6
-ax.quiver(0, 0, z_point, 0, len_compass, 0, color='black')
-ax.text(0, len_compass+1, z_point, 'N', color='Black')
-ax.quiver(0, 0, z_point, 0, -len_compass, 0, color='black')
-ax.text(0, -(len_compass+1), z_point, 'S', color='Black')
-ax.quiver(0, 0, z_point, len_compass, 0, 0, color='black')
-ax.text(len_compass+1, 0, z_point, 'E', color='Black')
-ax.quiver(0, 0, z_point, -len_compass, 0, 0, color='black')
-ax.text(-(len_compass+1), 0, z_point, 'W', color='Black')
+len_compass = 1
+# ax.quiver(0, 0, z_point, 0, len_compass, 0, color='black')
+# ax.text(0, len_compass+1, z_point, 'N', color='Black')
+# ax.quiver(0, 0, z_point, 0, -len_compass, 0, color='black')
+# ax.text(0, -(len_compass+1), z_point, 'S', color='Black')
+# ax.quiver(0, 0, z_point, len_compass, 0, 0, color='black')
+# ax.text(len_compass+1, 0, z_point, 'E', color='Black')
+# ax.quiver(0, 0, z_point, -len_compass, 0, 0, color='black')
+# ax.text(-(len_compass+1), 0, z_point, 'W', color='Black')
+
+ax.quiver(0, 0, 1, 0, 1, 0, color='black')
+ax.text(0, 1, 0, 'N', color='Green')
+ax.quiver(0, 0, 1, 0, -1, 0, color='black')
+ax.text(0, -1, 0, 'S', color='Green')
+ax.quiver(0, 0, 1, 1, 0, 0, color='black')
+ax.text(1, 0, 0, 'E', color='Green')
+ax.quiver(0, 0, 1, -1, 0, 0, color='black')
+ax.text(-1, 0, 0, 'W', color='Green')
+
 
 # direction of travel for origin
 target_degrees = degrees_calculate([0, 0], [x_point, y_point])
@@ -136,21 +150,22 @@ nsew_origin = get_nsew(degrees=heading_origin)
 # target direction and degrees
 ax.scatter(0, 0, 0, color='White', label=f'Target: {round(target_degrees)} - {get_nsew(target_degrees)}')
 
-# direction of travel for origin, static coordinate plaes
+# direction of travel for origin, static coordinate planes
 points = get_heading_points(heading_degrees=heading_origin)
-# print(points)
-plot_arrow(ax, points[0] * 10, points[1] * 10, points[2] * 10, color='blue')
 
-# empty space
-# ax.set_xticks([])
-# ax.set_yticks([])
-# ax.set_zticks([])
+# for blue arrow length
+scale = 1
+plot_arrow(ax, points[0] * scale, points[1] * scale, points[2] * scale, color='blue')
+
+# 3D ranges
+ax.set_xticks(scale_grid)
+ax.set_yticks(scale_grid)
+ax.set_zticks(scale_grid)
 
 target[0] = round(target[0])
 target[1] = round(target[1])
 target[2] = round(target[2])
 ax.set_title(f'Arrow from origin (0, 0, 0) to Target at {target} relative')
-ax.text(x_point, y_point, z_point, "Target", color='red')
 
 
 # Show plot
