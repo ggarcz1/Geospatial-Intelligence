@@ -28,6 +28,20 @@ Space is defined as 50 miles in the US and 62 miles internationally.\
 62 miles (100 km) = 327360 feet (100000 meters)
 
 
+### 3D Coordinates ###
+Input values are in miles.  To view the target and object in 3d space, run:
+
+`python .\3d_space.py -x 10 -y 13 -z 14 -d 83`\
+`-x --> x point of target`\
+`-y --> y point of target`\
+`-z --> z point of target`\
+`-d --> direction of origin`
+
+For default hardcoded values, run:
+
+`python .\3d_space.py`
+
+
 ### ToDo: ###
 1. In `coods.py` figure out if the 'none' is valid check for the `z` parameter in coordinates.  This may cayse issues with 2D vs 3D point verifications.
   - What about 1D points?

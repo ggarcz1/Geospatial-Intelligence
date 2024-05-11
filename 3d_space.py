@@ -1,21 +1,21 @@
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-import numpy as np
 import math
-import random
 import argparse
+# from mpl_toolkits.mplot3d import Axes3D
+# import numpy as np
+# import random
 # from coords import Coords
 
 
 # usage:
-# python .\3d_gui_gpt.py -x 10 -y 13 -z 14 -d 83
+# python .\3d_space.py -x 10 -y 13 -z 14 -d 83
 # -x --> x point of target
 # -y --> y point of target
 # -z --> z point of target
 # -d --> direction of origin
 
 # for default hardcoded values
-# python .\3d_gui_gpt.py 
+# python .\3d_space.py
 
 def degrees_calculate(p1: list, p2: list) -> float:
     # Calculate the angle using atan2 functions
@@ -124,23 +124,23 @@ plot_arrow(ax, x_point, y_point, z_point, color='red')
 z_point = 1
 len_compass = abs(min(x_point, y_point, z_point) / 2)
 len_compass = 1
-# ax.quiver(0, 0, z_point, 0, len_compass, 0, color='black')
-# ax.text(0, len_compass+1, z_point, 'N', color='Black')
-# ax.quiver(0, 0, z_point, 0, -len_compass, 0, color='black')
-# ax.text(0, -(len_compass+1), z_point, 'S', color='Black')
-# ax.quiver(0, 0, z_point, len_compass, 0, 0, color='black')
-# ax.text(len_compass+1, 0, z_point, 'E', color='Black')
-# ax.quiver(0, 0, z_point, -len_compass, 0, 0, color='black')
-# ax.text(-(len_compass+1), 0, z_point, 'W', color='Black')
+# ax.quiver(0, 0, 1, 0, 1, 0, color='black')
+# ax.text(0, 1, 0, 'N', color='Green')
+# ax.quiver(0, 0, 1, 0, -1, 0, color='black')
+# ax.text(0, -1, 0, 'S', color='Green')
+# ax.quiver(0, 0, 1, 1, 0, 0, color='black')
+# ax.text(1, 0, 0, 'E', color='Green')
+# ax.quiver(0, 0, 1, -1, 0, 0, color='black')
+# ax.text(-1, 0, 0, 'W', color='Green')
 
-ax.quiver(0, 0, 1, 0, 1, 0, color='black')
-ax.text(0, 1, 0, 'N', color='Green')
-ax.quiver(0, 0, 1, 0, -1, 0, color='black')
-ax.text(0, -1, 0, 'S', color='Green')
-ax.quiver(0, 0, 1, 1, 0, 0, color='black')
-ax.text(1, 0, 0, 'E', color='Green')
-ax.quiver(0, 0, 1, -1, 0, 0, color='black')
-ax.text(-1, 0, 0, 'W', color='Green')
+ax.quiver(0, 0, -10, 0, 10, 0, color='black')
+ax.text(0, 10, -10, 'N', color='Green')
+ax.quiver(0, 0, -10, 0, -10, 0, color='black')
+ax.text(0, -10, -10, 'S', color='Green')
+ax.quiver(0, 0, -10, 10, 0, 0, color='black')
+ax.text(10, 0, -10, 'E', color='Green')
+ax.quiver(0, 0, -10, -10, 0, 0, color='black')
+ax.text(-10, 0, -10, 'W', color='Green')
 
 
 # direction of travel for origin
@@ -154,7 +154,8 @@ ax.scatter(0, 0, 0, color='White', label=f'Target: {round(target_degrees)} - {ge
 points = get_heading_points(heading_degrees=heading_origin)
 
 # for blue arrow length
-scale = 1
+scale = 10
+# plot_arrow(ax, points[0] * scale, points[1] * scale, points[2] * scale, color='blue')
 plot_arrow(ax, points[0] * scale, points[1] * scale, points[2] * scale, color='blue')
 
 # 3D ranges
