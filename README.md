@@ -1,4 +1,9 @@
-# A repository of geospatial intelligence projects, code, and algorithms
+# Geospatial Intelligence
+
+![alt text](images/satellite_earth.png "via: https://hub.jhu.edu/2022/03/14/michael-ard-john-oconnor-geospatial-intelligence/")
+
+
+A repository of geospatial intelligence projects, code, and algorithms
 
 Coordinates can be defined via the following:
 
@@ -41,6 +46,8 @@ For default hardcoded values, run:
 
 `python .\3d_space.py`
 
+
+![alt text](images/3d_1.png "3D diagram")
 
 ### ToDo: ###
 1. In `coods.py` figure out if the 'none' is valid check for the `z` parameter in coordinates.  This may cayse issues with 2D vs 3D point verifications.
