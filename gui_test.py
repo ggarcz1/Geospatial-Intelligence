@@ -91,7 +91,6 @@ def degrees_calculate(p1: list, p2: list) -> float:
     # determine quadrant
     quarter = quadrant(p2)
     direction = get_nsew(angle_degrees)
-    # print(f'Angle: {int(angle_degrees)}\nQuadrant: {quarter}\nDirection: {direction}')
 
     return angle_degrees
 
@@ -173,8 +172,6 @@ target = [random.uniform(-100, 100), random.uniform(-100, 100)]
 
 
 # print(f'Usage:\nFor default target f{target}:\npython .\gui_test.py\nFor input values:\npython .\gui_test.py x y')
-print(f'Usage:\npython .\gui_test.py\npython .\gui_test.py x y\n\n')
-
 
 # parser = argparse.ArgumentParser(description='description')
 # args = parser.parse_args()
@@ -187,6 +184,8 @@ print(f'Usage:\npython .\gui_test.py\npython .\gui_test.py x y\n\n')
 
 # if args.arg1:
 #     i = int(args.arg1)
+
+print(f'Usage:\npython .\gui_test.py\npython .\gui_test.py x y\n\n')
 
 if len(sys.argv) == 3:
     target = [float(sys.argv[1]), float(sys.argv[2])]

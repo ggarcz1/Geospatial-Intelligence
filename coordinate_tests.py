@@ -104,7 +104,7 @@ class TestCoordinateComputations(unittest.TestCase):
         result = Coords.haversine_distance(point1, point2, point3)
         self.assertEqual(result, None)
 
-    # distance_2d
+    # # distance_2d
     # def test_distance_2d_1(self):
     #     point1 = Coords(41.42751697778474, -75.92733091231945, None, 2)
     #     point2 = Coords(36.32418982833003, -110.22953052763988, None, 2)
@@ -138,16 +138,23 @@ class TestCoordinateComputations(unittest.TestCase):
         self.assertGreater(result, 0)
 
     # rise over run   
+    def test_rise_over_run_2d_1(self):
+        point1 = Coords(-87654, -8965453, None, 2)
+        point2 = Coords(-3424567, -9876543, None, 2)
+        result = Coords.distance_2d(point1, point2)
+        # need to calculate these
+        self.assertGreater(round(result, 2), 0)
+        self.assertGreater(result, 0)
+    
+    def test_rise_over_run_2d_2(self):
+        point1 = Coords(-87654, -8965453, None, 2)
+        point2 = Coords(-3424567, -9876543, None, 2)
+        result = Coords.rise_run(point1, point2, None)
+        # need to calculate these
+        self.assertEquals(result, 0)
     # rise
+
     # run
-
-    # def test_haversine_dist_3_points(self):
-    #     point1 = Coords(39.48719569273062, -76.53854508092664, None, 3)
-    #     point2 = Coords(39.48886062760044, -76.52274732566815, None, 3)
-    #     point3 = Coords(37.48886062760044, -77.52274732566815, None, 3)
-    #     result = Coords.haversine_distance(point1, point2, point3)
-    #     self.assertEqual(result, 0)
-
 
 if __name__ == '__main__':
     unittest.main()

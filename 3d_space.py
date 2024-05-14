@@ -1,11 +1,6 @@
 import matplotlib.pyplot as plt
 import math
 import argparse
-# from mpl_toolkits.mplot3d import Axes3D
-# import numpy as np
-# import random
-# from coords import Coords
-
 
 # usage:
 # python .\3d_space.py -x 10 -y 13 -z 14 -d 83
@@ -44,7 +39,7 @@ def degrees_calculate(p1: list, p2: list) -> float:
 
 def get_nsew(degrees: float) -> str:
     degrees %= 360
-    directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"]
+    directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N']
     index = round(degrees / 45) % 8
     return directions[index]
 
@@ -105,7 +100,7 @@ ax.scatter(0, 0, 0, color='blue', label='')
 
 # Plot the user-supplied point
 ax.scatter(x_point, y_point, z_point, color='green', label='Target')
-ax.text(x_point, y_point, z_point, "Target", color='red')
+ax.text(x_point, y_point, z_point, 'Target', color='red')
 
 ax.scatter(0, 0, 0, color='Blue', label='Origin Direction')
 ax.scatter(0, 0, 0, color='White', label=f'{heading_origin} - {get_nsew(heading_origin)}')
@@ -115,23 +110,9 @@ ax.scatter(0, 0, 0, color='White', label=f'{round(distance)} Miles')
 # Plot the arrow from (0, 0) to the target
 plot_arrow(ax, x_point, y_point, z_point, color='red')
 
-# Plot the arrow for N, S, E, W
-# if z_point <= 0:
-#     z_point -= 5
-# else:
-#     z_point += 5
-
 z_point = 1
 len_compass = abs(min(x_point, y_point, z_point) / 2)
 len_compass = 1
-# ax.quiver(0, 0, 1, 0, 1, 0, color='black')
-# ax.text(0, 1, 0, 'N', color='Green')
-# ax.quiver(0, 0, 1, 0, -1, 0, color='black')
-# ax.text(0, -1, 0, 'S', color='Green')
-# ax.quiver(0, 0, 1, 1, 0, 0, color='black')
-# ax.text(1, 0, 0, 'E', color='Green')
-# ax.quiver(0, 0, 1, -1, 0, 0, color='black')
-# ax.text(-1, 0, 0, 'W', color='Green')
 
 ax.quiver(0, 0, -10, 0, 10, 0, color='black')
 ax.text(0, 10, -10, 'N', color='Green')
@@ -155,7 +136,6 @@ points = get_heading_points(heading_degrees=heading_origin)
 
 # for blue arrow length
 scale = 10
-# plot_arrow(ax, points[0] * scale, points[1] * scale, points[2] * scale, color='blue')
 plot_arrow(ax, points[0] * scale, points[1] * scale, points[2] * scale, color='blue')
 
 # 3D ranges

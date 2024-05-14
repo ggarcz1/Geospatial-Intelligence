@@ -16,7 +16,7 @@ def calculate_endpoint(angle_degrees: float, distance):
 
 def get_nsew(degrees: float) -> str:
     degrees %= 360
-    directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"]
+    directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N']
     index = round(degrees / 45) % 8
     return directions[index]
 
@@ -51,7 +51,7 @@ def degrees_calculate(p1: list, p2: list) -> float:
 
     return angle_degrees
 
-# to calculate the distance of a vector, aka to a "target", point or object
+# to calculate the distance of a vector, aka to a 'target', point or object
 def rise_run(p1: list, p2: list) -> float:
     return (p2[1] - p1[1]) / (p2[0] - p1[0])
 
@@ -128,7 +128,7 @@ for each in range(0, i):
     dgr = round(degrees_calculate(origin, target), 2)
     direct = get_nsew(dgr)
     q = quadrant(target)
-    print(f'Target: {target}\nDistance: {dst}\nDegrees: {dgr}\nDirection: {direct}\nQuadrant: {q}\n----------------')
+    print(f'Target: {target}\nDistance: {dst}miles\nDegrees: {dgr}\nDirection: {direct}\nQuadrant: {q}\n----------------')
 
 msg = 'Done'
 print(f'\n\n--------Message--------\n\t {msg}\n-----------------------')

@@ -57,35 +57,43 @@ class Coords:
                     or (point.z > 264000):
                 rtn_text.append('Z value is out of range 0 to 264000')
 
-        return rtn_text if len(rtn_text) is not 0 else ''
+        return rtn_text if len(rtn_text) != 0 else ''
 
     def rise_run(coord1: float, coord2: float, coord3: float) -> float:
-        # 3d check
+        # 2d check
         if coord3 is None:
             return (coord2.y - coord1.y) / (coord2.x - coord1.x)
-        # TODO:
-        else:
-            # z is in feet
-            return (coord2.y - coord1.y) / (coord2.x - coord1.x)
+        
+        math.sqrt((coord2.x - coord1.x) ** 2 
+                        + (coord2.y - coord1.y) ** 2
+                        + (coord2.z - coord1.z) ** 2)
+        # # TODO:
+        # else:
+        #     # z is in feet
+        #     return (coord2.y - coord1.y) / (coord2.x - coord1.x)
 
     def rise(coord1: float, coord2: float, coord3: float) -> float:
-        # 3d check
+        # 2d check
         if coord3 is None:
             return coord2.y - coord1.y
-        # TODO:
-        else:
-            return coord2.y - coord1.y
+        return None
 
     def run(coord1: float, coord2: float, coord3: float) -> float:
-        # 3d check
+        # 2d check
         if coord3 is None:
             return coord2.x - coord1.x
-        # TODO:
-        else:
-            return coord2.x - coord1.x
-
+        return None
+    
     def distance_2d(coord1: float, coord2: float) -> float:
         return math.sqrt((coord2.x - coord1.x) ** 2 + (coord2.y - coord1.y) ** 2)
+
+    # def rise_run(coord1: float, coord2: float, coord3: float) -> float:
+    #     # 2d check
+    #     if coord3 is None:
+    #         return (coord2.y - coord1.y) / (coord2.x - coord1.x)
+    #     return math.sqrt((coord2.x - coord1.x) ** 2 
+    #                     + (coord2.y - coord1.y) ** 2
+    #                     + (coord2.z - coord1.z) ** 2)
 
     # source: https://chat.openai.com/share/d25da242-c9e8-41ab-ba38-b3c95b9dca91
     def haversine_distance(coord1: float, coord2: float, coord3: float) -> float:
@@ -107,27 +115,3 @@ class Coords:
                 return radius_of_earth * c
             else:
                 return None
-
-    def rise_run(coord1: float, coord2: float, coord3: float) -> float:
-        # 3d check
-        if coord3 is None:
-            return (coord2.y - coord1.y) / (coord2.x - coord1.x)
-        # TODO:
-        else:
-            return (coord2.y - coord1.y) / (coord2.x - coord1.x)
-
-    # def euclidean_distance(point1, point2):
-    #         """
-    #         Calculate the Euclidean distance between two points in 3D space.
-    #
-    #         Args:
-    #         point1 (tuple): Tuple containing the coordinates (x, y, z) of the first point.
-    #         point2 (tuple): Tuple containing the coordinates (x, y, z) of the second point.
-    #
-    #         Returns:
-    #         float: The Euclidean distance between the two points.
-    #         """
-    #     x1, y1, z1 = point1
-    #     x2, y2, z2 = point2
-    #     distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2 + (z2 - z1)**2)
-    #     return distance

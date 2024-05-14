@@ -3,6 +3,14 @@
 ![alt text](images/satellite_earth.png "via: https://hub.jhu.edu/2022/03/14/michael-ard-john-oconnor-geospatial-intelligence/")
 
 
+*For Developers*:\
+To generate required libraries, run the following: \
+```pip install pipreqs```\
+```pipreqs . --force```
+
+To install required libraries: \
+```pip install -r requirements.txt```
+
 A repository of geospatial intelligence projects, code, and algorithms
 
 Coordinates can be defined via the following:
@@ -32,8 +40,8 @@ Space is defined as 50 miles in the US and 62 miles internationally.\
 50 miles (80.65 km) = 264000 feet (80650 meters) \
 62 miles (100 km) = 327360 feet (100000 meters)
 
-
 ### 3D Coordinates ###
+
 Input values are in miles.  To view the target and object in 3d space, run:
 
 `python .\3d_space.py -x 10 -y 13 -z 14 -d 83`\
@@ -46,16 +54,18 @@ For default hardcoded values, run:
 
 `python .\3d_space.py`
 
-
 ![alt text](images/3d_1.png "3D diagram")
 
 ### ToDo: ###
-1. In `coods.py` figure out if the 'none' is valid check for the `z` parameter in coordinates.  This may cayse issues with 2D vs 3D point verifications.
-  - What about 1D points?
-  - Could possibly add a check for the dimension type to the coords class \
 
-See issue at : https://github.com/ggarcz1/Geospatial-Intelligence/issues/7
+1. In `coods.py` figure out if the 'none' is valid check for the `z` parameter in coordinates.  This may cayse issues with 2D vs 3D point verifications.
+
+  - What about 1D points?
+
+  - Could possibly add a check for the dimension type to the coords class
+
+See issue at : <https://github.com/ggarcz1/Geospatial-Intelligence/issues/7>
 
 1. Tracking and vectoring.  See issues below:
-   - https://github.com/ggarcz1/Geospatial-Intelligence/issues/5
-   - https://github.com/ggarcz1/Geospatial-Intelligence/issues/6
+   - <https://github.com/ggarcz1/Geospatial-Intelligence/issues/5>
+   - <https://github.com/ggarcz1/Geospatial-Intelligence/issues/6>
