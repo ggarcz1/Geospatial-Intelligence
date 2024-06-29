@@ -115,3 +115,5 @@ class Coords:
                 return radius_of_earth * c
             else:
                 return None
+    def random():
+        return -1
