@@ -12,6 +12,7 @@ import argparse
 # for default hardcoded values
 # python .\3d_space.py
 
+# p1 is always 0,0
 def degrees_calculate(p1: list, p2: list) -> float:
     # Calculate the angle using atan2 functions
     angle_radians = math.atan2(p2[1], p2[0])
@@ -89,6 +90,8 @@ else:
 distance = math.sqrt((x_point - 0)**2 + (y_point - 0)**2 + (z_point - 0)**2)
 scale_grid = max(abs(x_point), abs(y_point), abs(z_point))
 scale_grid = [-scale_grid, scale_grid]
+
+
 
 target = [x_point, y_point, z_point]
 # Create a figure and a 3D axis

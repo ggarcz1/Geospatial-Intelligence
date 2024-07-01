@@ -66,6 +66,8 @@ For default hardcoded values, run:
 
 See issue at : <https://github.com/ggarcz1/Geospatial-Intelligence/issues/7>
 
-1. Tracking and vectoring.  See issues below:
+2. Tracking and vectoring.  See issues below:
    - <https://github.com/ggarcz1/Geospatial-Intelligence/issues/5>
    - <https://github.com/ggarcz1/Geospatial-Intelligence/issues/6>
+
+  
