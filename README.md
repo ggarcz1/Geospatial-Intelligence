@@ -2,6 +2,9 @@
 
 ![alt text](images/satellite_earth.png "via: https://hub.jhu.edu/2022/03/14/michael-ard-john-oconnor-geospatial-intelligence/")
 
+End goal inspiration/follow along:
+
+[![Watch the video](https://img.youtube.com/vi/rm_ZL623Lzg/default.jpg)](https://www.youtube.com/watch?v=rm_ZL623Lzg )
 
 *For Developers*:\
 To generate required libraries, run the following: \
@@ -69,5 +72,7 @@ See issue at : <https://github.com/ggarcz1/Geospatial-Intelligence/issues/7>
 2. Tracking and vectoring.  See issues below:
    - <https://github.com/ggarcz1/Geospatial-Intelligence/issues/5>
    - <https://github.com/ggarcz1/Geospatial-Intelligence/issues/6>
+
+
 
   
