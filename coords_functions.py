@@ -10,7 +10,6 @@ class Coords_Functions:
             return (coord2.y - coord1.y) / (coord2.x - coord1.x)
         # TODO:
         else:
-            # z is in feet
             return (coord2.y - coord1.y) / (coord2.x - coord1.x)
 
     def rise(coord1: float, coord2: float, coord3: float) -> float:
@@ -52,6 +51,7 @@ class Coords_Functions:
                 return radius_of_earth * c
             else:
                 return None
+            
     def euclidean_distance(point1, point2):
         """
         Calculate the Euclidean distance between two points in 3D space.

@@ -4,7 +4,7 @@ class Vectoring:
     def __init__(self):
         return
     
-    # p1 is always 0,0
+    # p1 is always 0,0 or 0,0,0
     def degrees_calculate(self, p1: list, p2: list) -> float:
         # Calculate the angle using atan2 functions
         angle_radians = math.atan2(p2[1], p2[0])
@@ -37,10 +37,6 @@ class Vectoring:
         return directions[index]
 
 
-    def plot_arrow(self, ax, x, y, z, color):
-        ax.quiver(0, 0, 0, x, y, z, color=color, arrow_length_ratio=0.1)
-
-
     def get_heading_points(self, heading_degrees):
         # Convert compass heading from degrees to radians
         theta = math.radians(90)  # Polar angle (θ) is 90 degrees
@@ -55,8 +51,9 @@ class Vectoring:
         z_coordinate = r * math.cos(theta)
         return [x_coordinate, y_coordinate, z_coordinate]
 
-    def plot_vector_to_target(p1: list, p2: list) -> float:
-        degrees = degrees_calculate(p1, p2)
+    # TODO:
+    def plot_vector_to_target(self, p1: list, p2: list) -> float:
+        degrees = self.degrees_calculate(p1, p2)
 
         return 0
         

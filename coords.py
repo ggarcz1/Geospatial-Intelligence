@@ -1,7 +1,8 @@
 import math
 
-
+RADIUS_EARTH_MILES = 3958.8
 class Coords:
+    
     def __init__(self, x=0, y=0, z=0, dimension=0) -> None:
         self.x = x
         self.y = y
@@ -12,9 +13,13 @@ class Coords:
     def __str__(self):
         return f'Coords(x={self.x}, y={self.y}, z={self.z}, Dimension={self.dimension})'
 
-    # returns a list of the coordinates
+    # returns a list of the full coordinates
     def values(self) -> list:
         return [self.x, self.y, self.z]
+
+    # returns a list of the rounded coordinates
+    def rounded_values(self) -> list:
+        return [round(self.x), round(self.y), round(self.z)]
 
     def test_params(point) -> list:
         rtn_text = []
@@ -95,25 +100,27 @@ class Coords:
     #                     + (coord2.y - coord1.y) ** 2
     #                     + (coord2.z - coord1.z) ** 2)
 
+
+    # this works??
+    # called it in main.py
     # source: https://chat.openai.com/share/d25da242-c9e8-41ab-ba38-b3c95b9dca91
-    def haversine_distance(coord1: float, coord2: float, coord3: float) -> float:
-        if coord3 is None:
-            # must be 2 points in coord1 and coord2 
-            if coord1 is not None and coord2 is not None:
-                # Convert latitude and longitude from degrees to radians
-                lat1 = coord1.x
-                lat2 = coord2.x
-                lon1 = coord1.y
-                lon2 = coord2.y
-                lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
-                # Haversine formula
-                dlat = lat2 - lat1
-                dlon = lon2 - lon1
-                a = math.sin(dlat / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2) ** 2
-                c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-                radius_of_earth = 3958.8  # Earth's radius in miles
-                return radius_of_earth * c
-            else:
-                return None
+    def haversine_distance(coord1: float, coord2: float) -> list:
+        if coord1 is None or coord2 is None:
+            return
+        
+        # Convert latitude and longitude from degrees to radians
+        lat1 = coord1.x
+        lat2 = coord2.x
+        lon1 = coord1.y
+        lon2 = coord2.y
+        lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
+        # Haversine formula
+        dlat = lat2 - lat1
+        dlon = lon2 - lon1
+        a = math.sin(dlat / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2) ** 2
+        c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+        # radius_of_earth = 3958.8  # Earth's radius in miles
+        return [RADIUS_EARTH_MILES * c]
+                    
     def random():
         return -1

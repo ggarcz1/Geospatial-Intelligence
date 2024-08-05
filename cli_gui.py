@@ -128,7 +128,7 @@ for each in range(0, i):
     dgr = round(degrees_calculate(origin, target), 2)
     direct = get_nsew(dgr)
     q = quadrant(target)
-    print(f'Target: {target}\nDistance: {dst}miles\nDegrees: {dgr}\nDirection: {direct}\nQuadrant: {q}\n----------------')
+    print(f'Target: {target}\nDistance: {dst} miles\nDegrees: {dgr}\nDirection: {direct}\nQuadrant: {q}\n----------------')
 
 msg = 'Done'
-print(f'\n\n--------Message--------\n\t {msg}\n-----------------------')
+print(f'\n--------Message--------\n\t {msg}\n-----------------------')
