@@ -4,13 +4,14 @@ class Vectoring:
     def __init__(self):
         return
     
-    # p1 is always 0,0 or 0,0,0
-    def degrees_calculate(self, p1: list, p2: list) -> float:
+    def degrees_calculate(self, p1: list, p2: list, decimal: int) -> float:
+        if decimal < 0:
+            return -1
         # Calculate the angle using atan2 functions
         angle_radians = math.atan2(p2[1], p2[0])
         # Convert radians to degrees
         angle_degrees = math.degrees(angle_radians)
-        # print(angle_degrees)
+
         vals = {90.0: 0,
                 180.0: 270,
                 270.0: 180,
@@ -27,15 +28,17 @@ class Vectoring:
         #     angle_degrees = -999
         else:
             angle_degrees = (270 - angle_degrees) - 180
-        return angle_degrees
 
+        if decimal == -1:
+            angle_degrees = angle_degrees                     
+
+        return round(angle_degrees, decimal)
 
     def get_nsew(self, degrees: float) -> str:
         degrees %= 360
         directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N']
         index = round(degrees / 45) % 8
         return directions[index]
-
 
     def get_heading_points(self, heading_degrees):
         # Convert compass heading from degrees to radians
