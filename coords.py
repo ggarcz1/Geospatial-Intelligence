@@ -104,7 +104,7 @@ class Coords:
     # this works??
     # called it in main.py
     # source: https://chat.openai.com/share/d25da242-c9e8-41ab-ba38-b3c95b9dca91
-    def haversine_distance(coord1: float, coord2: float) -> list:
+    def haversine_distance(coord1: Coords, coord2: Coords) -> list:
         if coord1 is None or coord2 is None:
             return
         
@@ -121,6 +121,14 @@ class Coords:
         c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
         # radius_of_earth = 3958.8  # Earth's radius in miles
         return [RADIUS_EARTH_MILES * c]
-                    
+
+
+    def euclidean_distance(coord1: float, coord2: float) -> float:
+        distance = math.sqrt((coord2.x - coord1.x)**2 + 
+                             (coord2.y - coord1.y)**2 + 
+                             (coord2.z - coord1.z)**2)
+        return distance
+
+
     def random():
         return -1
