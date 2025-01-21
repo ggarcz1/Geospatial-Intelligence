@@ -129,6 +129,10 @@ class Coords:
                              (coord2.z - coord1.z)**2)
         return distance
 
-
+    # def inside_out_coords(coord1: float, coord2: float) -> str:
+    #         [0,0]
+    #         [0,1]
+    #         return 'inside'
+    
     def random():
         return -1
