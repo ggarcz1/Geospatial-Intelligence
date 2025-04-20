@@ -1,6 +1,6 @@
 from coords import Coords
+from distances import Distances
 import unittest
-
 
 class TestCoordinateComputations(unittest.TestCase):
     def test_dimension_1(self):
@@ -72,36 +72,33 @@ class TestCoordinateComputations(unittest.TestCase):
     def test_haversine_dist_two_points_1(self):
         point1 = Coords(39.48719569273062, -76.53854508092664, None, 2)
         point2 = Coords(39.48886062760044, -76.52274732566815, None, 2)
-        point3 = None
-        result = Coords.haversine_distance(point1, point2, point3)
+        result = Distances.haversine_distance(point1, point2)
         self.assertEqual(result, 0.8502160750610919)
         self.assertEqual(round(result, 2), 0.85)
 
     def test_haversine_dist_two_points_2(self):
         point1 = Coords(41.42751697778474, -75.92733091231945, None, 2)
         point2 = Coords(36.32418982833003, -110.22953052763988, None, 2)
-        point3 = None
-        result = Coords.haversine_distance(point1, point2, point3)
+        result = Distances.haversine_distance(point1, point2)
         self.assertEqual(round(result, 2), 1865.86)
         self.assertEqual(result, 1865.8575942399013)
 
     # should always be 0
     def test_haversine_dist_3_points(self):
-        point1 = Coords(39.48719569273062, -76.53854508092664, None, 2)
-        point2 = Coords(39.48886062760044, -76.52274732566815, None, 2)
-        point3 = Coords(37.48886062760044, -77.52274732566815, None, 2)
-        result = Coords.haversine_distance(point1, point2, point3)
-        self.assertEqual(result, None)
+        point1 = Coords(0, 0, None, 2)
+        point2 = Coords(0, 0, None, 2)
+        result = Distances.haversine_distance(point1, point2)
+        self.assertEqual(result, 0.0)
 
     def test_haversine_dist_1_point(self):
         point1 = Coords(39.48719569273062, -76.53854508092664, None, 2)
-        point2 = point3 = None
-        result = Coords.haversine_distance(point1, point2, point3)
+        point2 = None
+        result = Coords.haversine_distance(point1, point2)
         self.assertEqual(result, None)
 
     def test_haversine_dist_0_point(self):
-        point1 = point2 = point3 = None
-        result = Coords.haversine_distance(point1, point2, point3)
+        point1 = point2 = None
+        result = Distances.haversine_distance(point1, point2)
         self.assertEqual(result, None)
 
     # # distance_2d
@@ -149,9 +146,9 @@ class TestCoordinateComputations(unittest.TestCase):
     def test_rise_over_run_2d_2(self):
         point1 = Coords(-87654, -8965453, None, 2)
         point2 = Coords(-3424567, -9876543, None, 2)
-        result = Coords.rise_run(point1, point2, None)
+        result = Distances.rise_run(point1, point2, None)
         # need to calculate these
-        self.assertEquals(result, 0)
+        self.assertEqual(result, 0.27303)
     # rise
 
     # run

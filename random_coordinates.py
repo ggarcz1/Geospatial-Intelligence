@@ -1,7 +1,7 @@
 import random
 from coords import Coords
 
-
+# 1 mile = 5280 feet
 # 50 miles = 264000 feet
 # 62 miles = 327360 feet
 
