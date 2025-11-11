@@ -63,3 +63,4 @@ class Coords:
                 rtn_text.append('Z value is out of range 0 to 264000')
 
         return rtn_text if len(rtn_text) != 0 else ''
+        
