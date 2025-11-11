@@ -24,56 +24,60 @@ End goal inspiration/follow along:
 
 [![Watch the video](https://img.youtube.com/vi/rm_ZL623Lzg/default.jpg)](https://www.youtube.com/watch?v=rm_ZL623Lzg )
 
-*For Developers*:\
-To generate required libraries, run the following: \
-```pip install pipreqs```\
-```pipreqs . --force```
+*For Developers*
 
-To install required libraries: \
-```pip install -r requirements.txt```
+To generate required libraries, run the following:
+- `pip install pipreqs`
+- `pipreqs . --force`
+
+To install required libraries:
+- `pip install -r requirements.txt`
 
 A repository of geospatial intelligence projects, code, and algorithms
 
 Coordinates can be defined via the following:
 
-`from coords import Coords`\
-`# 2D`\
-`point1 = Coords(39.48719569273062, -76.53854508092664, None)`\
-`point2 = Coords(39.48886062760044, -76.52274732566815, None)`\
-`print(Coords.rise_run(point1, point2, None))`\
-`# 3D`\
-`point3 = Coords(39.48886062760044, -76.52274732566815, 534)`
+```python
+from coords import Coords
+# 2D
+point1 = Coords(39.48719569273062, -76.53854508092664, None)
+point2 = Coords(39.48886062760044, -76.52274732566815, None)
+print(Coords.rise_run(point1, point2, None))
+# 3D
+point3 = Coords(39.48886062760044, -76.52274732566815, 534)
+```
 
 Random coordinates can be defined via the following:
 
-`from random_coordinates import Random_Coordinates`\
-`Random_coordinates.get_2d()`\
-`Random_coordinates.get_3d()`
-
+```python
+from random_coordinates import Random_Coordinates
+Random_coordinates.get_2d()
+Random_coordinates.get_3d()
+```
 Utilize the following imports for the associated methods below:
 
-`from physics_methods import Physics`\
-`Physics.speed(...)`\
-`Physics.velocity(...)`\
-`Physics.acceleration(...)`
+```python
+from physics_methods import Physics
+Physics.speed(...)
+Physics.velocity(...)
+Physics.acceleration(...)
+```
 
-Space is defined as 50 miles in the US and 62 miles internationally.\
-50 miles (80.65 km) = 264000 feet (80650 meters) \
-62 miles (100 km) = 327360 feet (100000 meters)
+Space is defined as 50 miles in the US and 62 miles internationally.
+- `50` miles (`80.65` km) = `264000` feet (`80650` meters) 
+- `62` miles (`100` km) = `327360` feet (`100000` meters)
 
 ### 3D Coordinates ###
 
 Input values are in miles.  To view the target and object in 3d space, run:
-
-`python .\3d_space.py -x 10 -y 13 -z 14 -d 83`\
-`-x --> x point of target`\
-`-y --> y point of target`\
-`-z --> z point of target`\
-`-d --> direction of origin`
+- `python .\3d_space.py -x 10 -y 13 -z 14 -d 83`
+  - `-x` --> x point of target
+  - `-y` --> y point of target
+  - `-z` --> z point of target
+  - `-d` --> direction of origin`
 
 For default hardcoded values, run:
-
-`python .\3d_space.py`
+- `python .\3d_space.py`
 
 ![alt text](images/3d_1.png "3D diagram")
 
