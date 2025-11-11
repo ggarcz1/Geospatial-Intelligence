@@ -10,7 +10,7 @@ class Physics:
     # NOTE: both formulas use the same computation, however,
     # one uses displacement and the other uses velocity as the numerator
 
-    # time unit is dependent on the
+    # time unit is dependent on the imported value
     @staticmethod
     def time_to_x(distance: float, speed: float, unit_speed: Units, unit_time: float) -> list:
         time = 0
