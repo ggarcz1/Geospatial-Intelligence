@@ -2,7 +2,7 @@ import math
 from units import Units
 
 
-class Physics:
+class Movement:
     # def __init__(self, displacement, time):
     #     self.displacement = displacement
     #     self.time = time
