@@ -260,7 +260,11 @@ Description:
 
 ## 📄 File: `Physics\units.py`
 
-Description: TODO
+Description: 
+- in progress
+- assigns units to each type of coordinate (miles, feet, second, etc.) 
+- ensures that units are aligned and/or convered for calculations
+
 
 ### 🏷️Classes
 
@@ -275,8 +279,8 @@ Description: TODO
 
 ## 📄 File: `Physics\Vectoring\test_vectoring.py`
 
-Description: TODO
-
+Description:
+- a testing class for the Vectoring Classes
 
 ---
 
@@ -316,7 +320,10 @@ Description: TODO
 
 ## 📄 File: `Physics\Vectoring\threeVectoringMovingTargetCircle.py`
 
-Description: TODO
+Description: 
+- 2D dyncamic GUI for displaying vectors to a target
+- static origin
+- shows visual and numerical values for the vector
 
 ### 🏷️Classes
 
@@ -350,7 +357,8 @@ Description: TODO
 
 ## 📄 File: `review and recycle\Aoa\a0a.py`
 
-Description: TODO
+Description: 
+- angle of attack calculations
 
 ### 🔹Functions
 
@@ -360,7 +368,8 @@ Description: TODO
 
 ## 📄 File: `review and recycle\Aoa\aoa_gui.py`
 
-Description: TODO
+Description: 
+- gui for angle of attack (in development)
 
 ### 🏷️Classes
 
@@ -375,7 +384,8 @@ Description: TODO
 
 ## 📄 File: `review and recycle\Aoa\aoa_test.py`
 
-Description: TODO
+Description: 
+- testing of aoa implementations
 
 ### 🔹Functions
 
@@ -385,7 +395,8 @@ Description: TODO
 
 ## 📄 File: `review and recycle\automation\auto_make_tests.py`
 
-Description: TODO
+Description: 
+- attempt to create a wide range of tests automatically
 
 ### 🔹Functions
 
@@ -396,8 +407,8 @@ Description: TODO
 
 ## 📄 File: `review and recycle\automation\auto_open_maps.py`
 
-Description: TODO
-
+Description: 
+- opening of google maps based on provided coordinates and zoom
 
 ---
 
