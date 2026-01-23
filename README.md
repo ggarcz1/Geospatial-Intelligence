@@ -21,7 +21,6 @@ If you use or reference any items within this document, please provide proper at
 
 Directory Layout
 
-- 📁 classes
 - 📁 Coordinates
 - 📁 images
 - 📁 Physics
